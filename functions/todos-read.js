@@ -18,9 +18,9 @@ exports.handler = (event, context, callback) => {
       })
     }).catch((error) => {
       console.log('error', error)
-      return callback(null, {
+      return {
         statusCode: 400,
         body: JSON.stringify(error)
-      })
+      }
     })
 }
