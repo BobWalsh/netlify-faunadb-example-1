@@ -18,10 +18,10 @@ exports.handler = (event, context, callback) => {
       })
       // then query the refs
       return client.query(getAllTodoDataQuery).then((ret) => {
-        return callback(null, {
+        return {
           statusCode: 200,
-          body: JSON.stringify(ret)
-        })
+          body: JSON.stringify(response)
+        }
       })
     }).catch((error) => {
       console.log('error', error)

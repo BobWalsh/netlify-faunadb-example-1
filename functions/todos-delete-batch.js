@@ -17,10 +17,10 @@ exports.handler = (event, context, callback) => {
   return client.query(deleteAllCompletedTodoQuery)
     .then((response) => {
       console.log('success', response)
-      return callback(null, {
+      return {
         statusCode: 200,
         body: JSON.stringify(response)
-      })
+      }
     }).catch((error) => {
       console.log('error', error)
       return {
