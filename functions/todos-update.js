@@ -10,7 +10,7 @@ exports.handler = (event, context, callback) => {
   const data = JSON.parse(event.body)
   const id = getId(event.path)
   console.log(`Function 'todo-update' invoked. update id: ${id}`)
-  return client.query(q.Update(q.Ref(`classes/todos/${id}`), {data}))
+  return client.query(q.Update(q.Ref(`classes/todos/${id}`), { data }))
     .then((response) => {
       console.log('success', response)
       return callback(null, {
@@ -19,9 +19,9 @@ exports.handler = (event, context, callback) => {
       })
     }).catch((error) => {
       console.log('error', error)
-      return callback(null, {
+      return {
         statusCode: 400,
         body: JSON.stringify(error)
-      })
+      }
     })
 }
